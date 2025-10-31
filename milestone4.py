@@ -948,37 +948,3 @@ print("Initializing database...")
 
 print("Database initialization complete.")
 
-# --- Run the Streamlit app with ngrok ---
-from pyngrok import ngrok
-import subprocess
-import time
-
-# Use your ngrok token from M3
-ngrok.set_auth_token("330C4yfwAdgpTtWYYlkmS7dfn7w_5MZCDm4wYrYewVji5PtsC") # Replace with your actual token if needed
-
-# Kill old tunnels if running
-try:
-    ngrok.kill()
-except Exception as e:
-    print(f"No existing ngrok tunnels to kill or error: {e}")
-
-# --- Start Streamlit ---
-print("Starting Streamlit app in the background...")
-# Note: We use port 8501, the default for Streamlit
-p = subprocess.Popen(["streamlit", "run", "app.py", "--server.port=8501"])
-
-print("Waiting 10 seconds for the Streamlit server to start...")
-time.sleep(10)
-
-# Create URL
-try:
-    public_url = ngrok.connect(8501)
-    print("========================================================================")
-    print("✅ Your App is running here:", public_url)
-    print("========================================================================")
-    print(f"Streamlit PID: {p.pid}")
-except Exception as e:
-    print(f"❌ Error starting ngrok tunnel: {e}")
-    print("   Please ensure ngrok is installed and your auth token is correct.")
-    print("   Killing Streamlit process...")
-    p.terminate()
