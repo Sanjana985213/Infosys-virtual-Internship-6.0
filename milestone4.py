@@ -295,7 +295,8 @@ def get_bot_response(msg):
                 if c in ["migraine", "minor head injury"] and match in ["headache", "fever"]: match = c
                 elif len(c) > len(match) and match not in ["migraine", "minor head injury"]: match = c
     if match and res_key in KB[match]:
-        s_list=list(entities['symptoms']); p_list=list(entities['body_parts']) # Corrected to use body_parts from KB
+        s_list=list(entities['symptoms'])
+        p_list=list(entities['body_parts']) # Corrected to use body_parts from KB
         nlu_p = f"Part(s): *{', '.join(p for p in p_list if p != 'body')}" if p_list and p_list != ["body"] else "Part(s): *None"
         nlu_s = f"Symptom(s): *{', '.join(s_list)}" if s_list else "Symptom(s): *None"
         nlu = f"<br><br>---<br>🔍 Analysis:<br>{nlu_s}<br>{nlu_p}"
