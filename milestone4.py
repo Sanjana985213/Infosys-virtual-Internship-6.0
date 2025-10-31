@@ -941,12 +941,11 @@ Original file is located at
 #              if st.button("Switch to User Login", key="switch_to_user_2"): st.session_state.login_type = "user"; st.rerun()
 
 # --- Install all requirements from the file ---
-!pip install -r requirements.txt
-!pip install pyngrok
+
 
 # --- IMPORTANT: Run the database script ONCE to create/populate the DB ---
 print("Initializing database...")
-!python database.py
+
 print("Database initialization complete.")
 
 # --- Run the Streamlit app with ngrok ---
