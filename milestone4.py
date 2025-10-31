@@ -1,4 +1,3 @@
-%%writefile app.py
 import streamlit as st
 import jwt, datetime, json, os, re
 from hashlib import sha256
