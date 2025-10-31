@@ -1,4 +1,4 @@
-%%writefile kb.json
+
 {
     "headache": {
         "symptoms": ["headache","migraine","throbbing head","pain in head", "sir dard", "maatha dard", "sir mein dard", "सिरदर्द", "माथा दर्द", "सिर में दर्द"],
