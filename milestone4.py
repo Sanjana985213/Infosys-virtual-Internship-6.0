@@ -7,7 +7,7 @@ Original file is located at
     https://colab.research.google.com/drive/1uyQSU_AYe6kJWw1ap7t6wVJ5qXT0YPLj
 """
 
-!pip install streamlit pyjwt pyngrok langdetect pandas plotly
+pip install streamlit pyjwt pyngrok langdetect pandas plotly
 
 # Commented out IPython magic to ensure Python compatibility.
 # %%writefile kb.json
